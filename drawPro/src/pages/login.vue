@@ -9,7 +9,7 @@
         label-width="80px"
         class="loginForm"
       >
-        <h3>登陆</h3>
+        <h3>登陆kuang</h3>
         <el-form-item label="用户名" prop="name">
           <el-input type="text" v-model="form.name" auto-complete="off" placeholder="请输入用户名"></el-input>
         </el-form-item>
