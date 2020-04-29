@@ -10,7 +10,7 @@
         active-text-color="#ffd04b"
       >
         <el-menu-item class="outWeb">
-          <i class="el-icon-switch-button" style="color:#fff;"></i>
+          <router-link :to="'/login'"><i class="el-icon-switch-button" style="color:#fff;"></i></router-link>
         </el-menu-item>
         <el-menu-item class="homeStyle">
           <router-link :to="'/'"><i class="el-icon-s-home" style="color:#fff;"></i></router-link>

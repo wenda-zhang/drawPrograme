@@ -14,7 +14,7 @@
           <el-input type="text" v-model="form.name" auto-complete="off" placeholder="请输入用户名"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model="form.password" auto-complete="off" placeholder="请输入密码"></el-input>
+          <el-input type="password" v-model="form.password" auto-complete="off" @keyup.enter.native="submit" placeholder="请输入密码"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button class="homeBut" type="primary" plain @click="submit" :loading="logining">登录</el-button>
