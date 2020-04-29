@@ -9,7 +9,7 @@
         label-width="80px"
         class="loginForm"
       >
-        <h3>登陆kuang</h3>
+        <h3>登陆</h3>
         <el-form-item label="用户名" prop="name">
           <el-input type="text" v-model="form.name" auto-complete="off" placeholder="请输入用户名"></el-input>
         </el-form-item>
@@ -32,8 +32,8 @@ export default {
     return {
       logining: false,
       form: {
-        name: "admin",
-        password: "123456"
+        name: "",
+        password: ""
       },
       ruleForm: {
         name: [{ required: true, message: "请输入账号", trigger: "blur" }],
@@ -49,7 +49,7 @@ export default {
           if (this.form.name === "admin" && this.form.password === "123456") {
             this.logining = false;
             sessionStorage.setItem("user", this.form.name);
-            this.$router.push({ name: "home" });
+            this.$router.push("/");
           } else {
             this.logining = false;
             this.$alert("用户名或密码错误!", "info", {
@@ -83,19 +83,19 @@ export default {
   border-radius: 5px;
   background: #fff;
   border: 1px solid #dcdfe6;
-}
-.loginForm {
-  text-align: center;
-  padding-top: 15px;
-  padding-right: 30px;
-  top: 10px;
-}
-.homeBut {
-  position: absolute;
-  left: 0px;
-}
-.loginBut {
-  position: absolute;
-  right: 0px;
+  .loginForm {
+    text-align: center;
+    padding-top: 15px;
+    padding-right: 30px;
+    top: 10px;
+    .homeBut {
+      position: absolute;
+      left: 0px;
+    }
+    .loginBut {
+      position: absolute;
+      right: 0px;
+    }
+  }
 }
 </style>
