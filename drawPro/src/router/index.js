@@ -23,7 +23,8 @@ export default new Router({
         path: '/',
         name: 'admin',
         component: Admin
-      }, {
+      }, 
+      {
         path: '/user',
         name: 'user',
         component: User

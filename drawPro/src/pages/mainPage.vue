@@ -4,7 +4,6 @@
       <el-menu
         class="el-menu-header"
         mode="horizontal"
-        @select="handleSelect"
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b"
@@ -27,14 +26,12 @@
           text-color="#fff"
           active-text-color="#ffd04b"
         >
-          <el-menu-item index="/">
-            <i class="el-icon-s-custom"></i>
-            <span slot="title">个人信息</span>
+        <span v-for="(item, index) of meanue" :key="index">
+          <el-menu-item :index="item.index">
+            <i :class="item.icon"></i>
+            <span slot="title">{{item.title}}</span>
           </el-menu-item>
-          <el-menu-item index="/user">
-            <i class="el-icon-menu"></i>
-            <span slot="title">业务管理</span>
-          </el-menu-item>
+        </span>
         </el-menu>
       </el-aside>
       <el-main>
@@ -45,25 +42,46 @@
 </template>
 
 <script>
+import meanue from '../utils/meanue';
+
 export default {
   name: "MainPage",
+  components: {},
   data() {
     return {
       activeIndex: "/",
-      activeIndex2: "2"
+      activeIndex2: "2",
+      testValue: 'testOrigin',
+      otherValue: 'otherOrigin',
+      fatherValue: 'fatherValue',
+      // meanueList: [],
+      meanue: []
     };
   },
+  mounted() {
+    // console.log(this.meanue);
+    this.meanue = meanue;
+  },
   methods: {
+    testClick() {
+      this.testValue == 'testOrigin' ? this.testValue = 'clickValue' : this.testValue = 'testOrigin';
+    },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    }
-  }
+    // outValue(e) {
+    //   console.log(e);
+    // },
+    childEvent(data) {
+      this.fatherValue == 'fatherValue' ? this.fatherValue = data : this.fatherValue = 'fatherValue';
+      this.otherValue == 'otherOrigin' ? this.otherValue = data : this.otherValue = 'otherOrigin';
+    },
+  },
+
+  watch: {},
 };
 </script>
 
